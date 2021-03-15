@@ -5,7 +5,7 @@
 
 if [ ! -f /data/minecraft_server.jar ]
 then
-    curl "https://launcher.mojang.com/v1/objects/3dc3d84a581f14691199cf6831b71ed1296a9fdf/server.jar" -o /data/minecraft_server.jar
+    curl "https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar" -o /data/minecraft_server.jar
 fi
 
 if [ ! -f /data/eula.txt ]
@@ -13,7 +13,7 @@ then
     echo "eula=true" > /data/eula.txt
 fi
 
-ngrok authtoken $ngrok_token
+ngrok authtoken $NGROK_TOKEN
 ngrok tcp 25565 > /dev/null &
 
 cd /data/; java -Xmx2G -jar minecraft_server.jar nogui

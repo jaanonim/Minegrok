@@ -21,7 +21,7 @@ RUN    echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-se
 # Load in all of our config files.
 ADD    ./scripts/start /start
 ADD    ./ngrok/ngrok /bin/ngrok
-ADD	   ./server_files /data
+ADD	./server /data
 
 # Fix all permissions
 RUN    chmod +x /start
