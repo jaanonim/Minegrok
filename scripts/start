@@ -3,9 +3,9 @@
 # docker-minecraft /start script
 # -----------------------------------------------------------------------------
 
-if [ ! -f /data/minecraft_server.jar ]
+if [ ! -f /data/server.jar ]
 then
-    curl "https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar" -o /data/minecraft_server.jar
+    curl "https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar" -o /data/server.jar
 fi
 
 if [ ! -f /data/eula.txt ]
@@ -16,4 +16,4 @@ fi
 ngrok authtoken $NGROK_TOKEN
 ngrok tcp 25565 > /dev/null &
 
-cd /data/; java -Xmx2G -jar minecraft_server.jar nogui
+cd /data/; java -Xmx2G -jar server.jar nogui
